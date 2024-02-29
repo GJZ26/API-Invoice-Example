@@ -1,5 +1,5 @@
 import express from 'express'
-import { getController, makeController } from './infrastructure/dependencies';
+import { getController, makeController } from './dependencies';
 
 const paymentsRouter=express.Router()
 

@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  genericapi:
+    build:
+      context: ./GenericAPI
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+    env_file: ./GenericAPI/.env
+    ports:
+      - "3030:3030"
+
+  invoiceservice:
+    build:
+      context: ./InvoiceService
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+    env_file: ./InvoiceService/.env
+
+  front:
+    image: nginx:mainline-alpine3.18-perl
+    volumes:
+      - ./Front:/usr/share/nginx/html
+    ports:
+      - "80:80"

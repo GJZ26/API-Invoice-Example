@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRouter from "./user/infrastructure/UserRouter";
-import paymentsRouter from "./payment/PaymentRouter";
+import paymentsRouter from "./payment/infrastructure/PaymentRouter";
 
 dotenv.config();
 
