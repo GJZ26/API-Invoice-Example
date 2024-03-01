@@ -24,7 +24,8 @@ export default class SendNotificationService implements SendNotificationInterfac
 
   sendNotification(
     id: number,
-    user_id: string
+    user_id: string,
+    date:string
   ): string {
     if (this.provideChannel === undefined) {
       return "Channel not found.";
@@ -36,6 +37,7 @@ export default class SendNotificationService implements SendNotificationInterfac
         JSON.stringify({
           id: id,
           user_id: user_id,
+          date: date
         })
       )
     );

@@ -139,3 +139,11 @@ table td {
     padding: 7px 9px;
     font-weight: 300;
 }
+
+td.ok{
+    color: rgb(38 209 29);
+}
+
+td.wait{
+    color: #cece00;
+}

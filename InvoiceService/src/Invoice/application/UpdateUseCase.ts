@@ -13,17 +13,23 @@ export default class UpdateUseCase {
   ): Promise<InvoiceReponse | null> {
     try {
       const result = await this.invoiceRepository.update(client_id, invoice_id);
+
       if (result === null) {
         return null;
       }
 
-      this.sendNotificationInterface.sendNotification(invoice_id, client_id);
+      this.sendNotificationInterface.sendNotification(
+        invoice_id,
+        client_id,
+        result.date
+      );
 
       const response: InvoiceReponse = {
         client_id: client_id,
         invoice_id: invoice_id,
+        date: result.date,
       };
-      
+
       return result;
     } catch (e) {
       console.log(e);

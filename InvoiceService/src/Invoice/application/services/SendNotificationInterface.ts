@@ -9,6 +9,7 @@ export default interface SendNotificationInterface {
   init(): Promise<boolean>;
   sendNotification(
     id: number,
-    user_id: string
+    user_id: string,
+    date:string
   ): string;
 }

@@ -2,6 +2,10 @@ const loginForm = document.getElementById('login')
 const payForm = document.getElementById('pay')
 const outLogin = document.getElementById('outlogin')
 const tableBody = document.getElementById('tbl')
+const btnpay = document.getElementById('btnpay')
+const btnlogin = document.getElementById('btnlogin')
+
+import connectToWS from './socket.js'
 
 const API_REQUEST = {
     host: "127.0.0.1",
@@ -14,8 +18,8 @@ var user_id = ""
 
 function loginHandler(e) {
     e.preventDefault()
-    const email = e.target[0].value
-    const password = e.target[1].value
+    const email = document.getElementById('emailinput').value
+    const password = document.getElementById('passwordinput').value
 
     const body = {
         method: "POST",
@@ -40,7 +44,6 @@ function loginHandler(e) {
 
         })
         .catch((err) => {
-            console.log("AA")
             console.log(err)
         });
 
@@ -54,7 +57,7 @@ function doEverything(data) {
     // Disabling current form.
     loginForm.children[1].children[0].disabled = true
     loginForm.children[2].children[0].disabled = true
-    loginForm.children[3].disabled = true
+    loginForm.children[3].children[1].disabled = true
     loginForm.className = "disable"
 
     // Activate pay form
@@ -65,6 +68,7 @@ function doEverything(data) {
     payForm.className = ""
 
     getAllRecords()
+    connectToWS(user_id)
 }
 
 function addRecordToTable(id, concept, amount, statu, date = "N/A") {
@@ -73,7 +77,7 @@ function addRecordToTable(id, concept, amount, statu, date = "N/A") {
         `
     <td>${concept}</td>
     <td>${amount}</td>
-    <td>${statu}</td>
+    <td class="${statu === "RECEIVED" ? "ok" : "wait"}">${statu}</td>
     <td>${date}</td>
     <td>${user_name}</td>
     `
@@ -109,24 +113,22 @@ function getAllRecords() {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
             const records = data.data
             records.map((record) => {
                 clearTable(true);
-                addRecordToTable(record.id, record.concept, record.amount, record.status, !record.date  ? "N/A" : record.date)
+                addRecordToTable(record.id, record.concept, record.amount, record.status, !record.date ? "N/A" : record.date)
             })
         })
         .catch((err) => {
-            console.log("Se produjo un error al realizar la solicitud:");
-            console.error(err);
+            console.log(err)
         });
 }
 
 function paymentHandler(e) {
     e.preventDefault() //pedro@dummy.com
 
-    const concept = e.target[0].value
-    const amount = e.target[1].value
+    const concept = document.getElementById('conceptinput').value
+    const amount = document.getElementById('amountinput').value
 
     if (!concept || !amount) {
         return alert("Complete los campos")
@@ -148,23 +150,20 @@ function paymentHandler(e) {
     fetch(`http://${API_REQUEST.host}:${API_REQUEST.port}/pays/`, body)
         .then(response => response.json())
         .then((data) => {
-            console.log(data)
             clearTable(true);
             addRecordToTable(data.data.id, data.data.concept, data.data.amount, data.data.status, !data.data.date ? "N/A" : data.data.date)
         })
         .catch((err) => {
-            console.log("AA")
             console.log(err)
         });
 
 
-    console.log(e)
 }
 
-loginForm.addEventListener('submit', (e) => {
+btnlogin.addEventListener('click', (e) => {
     loginHandler(e)
 })
 
-payForm.addEventListener('submit', (e) => {
+btnpay.addEventListener('click', (e) => {
     paymentHandler(e)
 })

@@ -15,9 +15,12 @@ export default class MySqlInvoiceRepository implements InvoiceRepository {
         return null;
       }
 
+      const currentDate = new Date();
+
       let res: InvoiceReponse = {
         invoice_id: id,
         client_id: client_id,
+        date: currentDate.toISOString()
       };
 
       return res;

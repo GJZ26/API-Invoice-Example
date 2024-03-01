@@ -12,12 +12,12 @@ services:
       - "3030:3030"
 
   # invoiceservice:
-    # build:
-    #   context: ./InvoiceService
-    #   dockerfile: Dockerfile
-    # environment:
-    #   - NODE_ENV=production
-    # env_file: ./InvoiceService/.env
+  #   build:
+  #     context: ./InvoiceService
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - NODE_ENV=production
+  #   env_file: ./InvoiceService/.env
 
   # wsserver:
   #   build:

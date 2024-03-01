@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS payment (
     user_id CHAR(36) NOT NULL,
     concept VARCHAR(255) NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
-    date DATE,
+    date DATETIME,
     status ENUM('RECEIVED', 'PENDING') NOT NULL DEFAULT 'PENDING'
 );
 
