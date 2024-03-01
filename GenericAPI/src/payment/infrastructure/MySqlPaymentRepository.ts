@@ -20,7 +20,7 @@ export default class MySqlPaymentRepository implements PaymentRepository {
         (element: {
           user_id: string;
           id: any;
-          conept: any;
+          concept: any;
           amount: any;
           date: any;
           status: any;
@@ -28,7 +28,7 @@ export default class MySqlPaymentRepository implements PaymentRepository {
           response.push({
             id: element.id,
             user_id: element.user_id,
-            concept: element.conept,
+            concept: element.concept,
             amount: element.amount,
             date: element.date,
             status: element.status,
@@ -49,7 +49,7 @@ export default class MySqlPaymentRepository implements PaymentRepository {
     amount: number
   ): Promise<GetPayment | null> {
     const sentence =
-      "INSERT INTO payment (user_id, concept, amount, date) VALUES (?, ?, ?, NOW())";
+      "INSERT INTO payment (user_id, concept, amount, date) VALUES (?, ?, ?, NULL)";
     const params = [user_id, concept, amount];
 
     try {

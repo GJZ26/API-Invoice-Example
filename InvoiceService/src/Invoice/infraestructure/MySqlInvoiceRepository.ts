@@ -5,7 +5,7 @@ import InvoiceRepository from "../domain/InvoiceRepository";
 export default class MySqlInvoiceRepository implements InvoiceRepository {
   async update(client_id: string, id: number): Promise<InvoiceReponse | null> {
     const sentence =
-      "UPDATE payment SET status = ? WHERE user_id = ? AND id = ?";
+      "UPDATE payment SET status = ?, date = NOW() WHERE user_id = ? AND id = ?";
     const params = ["RECEIVED", client_id, id];
     try {
       await this.sleep(4000);

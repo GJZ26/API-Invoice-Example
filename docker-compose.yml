@@ -11,17 +11,27 @@ services:
     ports:
       - "3030:3030"
 
-  invoiceservice:
-    build:
-      context: ./InvoiceService
-      dockerfile: Dockerfile
-    environment:
-      - NODE_ENV=production
-    env_file: ./InvoiceService/.env
+  # invoiceservice:
+    # build:
+    #   context: ./InvoiceService
+    #   dockerfile: Dockerfile
+    # environment:
+    #   - NODE_ENV=production
+    # env_file: ./InvoiceService/.env
 
-  front:
-    image: nginx:mainline-alpine3.18-perl
-    volumes:
-      - ./Front:/usr/share/nginx/html
-    ports:
-      - "80:80"
+  # wsserver:
+  #   build:
+  #     context: ./ServerWS
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - NODE_ENV=production
+  #   env_file: ./ServerWS/.env
+  #   ports:
+  #     - "3032:3032"
+
+  # # front:
+  #   image: nginx:mainline-alpine3.18-perl
+  #   volumes:
+  #     - ./Front:/usr/share/nginx/html
+  #   ports:
+  #     - "80:80"

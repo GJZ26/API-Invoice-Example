@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node ./dist/App.js",
-    "dev": "tsnd --respawn src/App.ts "
+    "start": "node ./dist/App.js"
   },
   "keywords": [],
   "author": "",
@@ -15,12 +14,11 @@
     "@types/amqplib": "^0.10.4",
     "@types/dotenv": "^8.2.0",
     "@types/node": "^20.11.22",
-    "ts-node-dev": "^2.0.0"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "amqplib": "^0.10.3",
     "dotenv": "^16.4.1",
-    "mysql2": "^3.8.0",
-    "typescript": "^5.3.3"
+    "mysql2": "^3.8.0"
   }
 }

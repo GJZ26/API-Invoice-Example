@@ -4,11 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front de prueba :D</title>
+    <title>Event Driven - App Sample :)</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font - Poppins :) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <h1>Este es un front de pruebaaaaaaaaaaaaaa</h1>
+    <div class="forms">
+        <form class="disable" id="pay">
+            <h2>Payment</h2>
+            <label>
+                Concept
+                <input type="text" disabled>
+            </label>
+
+            <label>
+                Amount
+                <input type="number" disabled>
+            </label>
+            <input type="submit" value="Pagar" disabled>
+        </form>
+        <form id="login">
+            <h2>Login</h2>
+            <label>
+                Correo
+                <input type="email">
+            </label>
+            <label>
+                Contraseña
+                <input type="password">
+            </label>
+            <div>
+                <span style="margin-right: 5px; font-size:1.2rem" id="outlogin"></span>
+                <input type="submit" value="Iniciar Sesión">
+            </div>
+        </form>
+    </div>
+    <div class="records">
+        <table border="1" cellpadding="2" cellspacing="0">
+            <caption>History</caption>
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Summiter</th>
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                <tr class="deleteme">
+                    <td colspan="5" style="text-align: center; padding:30px 0px; font-size:1.6rem">No data</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
+<script src="script.js"></script>
 
 </html>

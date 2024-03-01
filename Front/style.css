@@ -1,0 +1,141 @@
+:root {
+    --bg-color: rgb(43, 43, 43);
+    --default-text-color: rgb(223, 223, 223);
+    --default-secondary-color: rgb(190 190 190);
+    ;
+    --default-inactive-color: rgb(65 65 65);
+
+    --default-font-family: "Poppin", Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serifsystem-ui, -apple-system, BlinkMacSystemFont;
+    --default-font-size: 10px
+}
+
+html {
+    background-color: var(--bg-color);
+    color: var(--default-text-color);
+    font-family: var(--default-font-family);
+    font-size: var(--default-font-size);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+div.forms {
+    display: flex;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 54px;
+    transition: color 200ms;
+}
+
+div.forms form.disable,
+form.disable label,
+form.disable input:not([type=submit]) {
+    border-color: var(--default-inactive-color);
+    color: var(--default-inactive-color);
+    cursor: default;
+    transition: color 200ms;
+}
+
+form.disable input[type=submit],
+form.disable input[type=submit]:hover {
+    background-color: var(--default-inactive-color);
+    cursor: default;
+    transition: color 200ms;
+}
+
+div.forms form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    border: 1px white solid;
+    padding: 14px 12px 32px 56px;
+    border-radius: 11px;
+    transition: color 200ms;
+}
+
+div.forms form h2 {
+    font-size: 3rem;
+    margin: 12px 4px 17px 0px;
+    text-align: right;
+}
+
+label {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+label>input {
+    background-color: var(--bg-color);
+    color: var(--default-text-color);
+    outline: none;
+    border: 1px solid var(--default-text-color);
+    padding: 7px 6px;
+    border-radius: 5px;
+    transition: color 200ms;
+}
+
+input[type="submit"] {
+    background-color: var(--default-secondary-color);
+    color: var(--bg-color);
+    border: none;
+    outline: none;
+    font-family: var(--default-font-family);
+    font-weight: 500;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    padding: 4px 16px;
+    margin: 17px 0px 0px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--default-text-color);
+    transition: all 100ms;
+}
+
+div.records {
+    display: flex;
+    justify-content: center;
+    margin: 39px 0px;
+}
+
+div.records table {
+    border-color: var(--default-text-color);
+    border-radius: 4px;
+}
+
+div.records table th {
+    font-size: 1.7rem;
+    padding: 6px 32px;
+    font-weight: 500;
+}
+
+table caption {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+table td {
+    color: var(--default-text-color);
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 7px 9px;
+    font-weight: 300;
+}

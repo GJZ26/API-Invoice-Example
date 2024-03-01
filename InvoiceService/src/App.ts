@@ -1,6 +1,6 @@
 import amqplib from "amqplib";
 import dotenv from "dotenv";
-import { updateConsumerChannel } from "./Invoice/infraestructure/UpdateHandler";
+import { updateConsumerChannel } from "./invoice/infraestructure/UpdateHandler";
 
 dotenv.config();
 
