@@ -1,14 +1,14 @@
 import { io } from "https://cdn.socket.io/4.7.4/socket.io.esm.min.js";
 
 const WEBSOCKET_REQUEST = {
-    host: "127.0.0.1",
+    host: "192.168.1.69",
     port: 3032
 }
 
 export default function connectToWS(user_id) {
     console.log(user_id)
 
-    const socket = io(`ws://${host}:${3032}`, {
+    const socket = io(`ws://${WEBSOCKET_REQUEST.host}:${WEBSOCKET_REQUEST.port}`, {
         query: {
             userid: user_id
         }
