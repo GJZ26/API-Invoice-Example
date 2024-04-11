@@ -8,7 +8,7 @@ const btnlogin = document.getElementById('btnlogin')
 import connectToWS from './socket.js'
 
 const API_REQUEST = {
-    host: "3.216.187.129",
+    host: "54.204.159.182",
     port: 3030
 }
 

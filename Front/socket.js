@@ -1,7 +1,7 @@
 import { io } from "https://cdn.socket.io/4.7.4/socket.io.esm.min.js";
 
 const WEBSOCKET_REQUEST = {
-    host: "3.216.187.129",
+    host: "54.204.159.182",
     port: 3032
 }
 
